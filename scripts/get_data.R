@@ -4,7 +4,6 @@ library(RSQLite)
 library(cRegulome)
 
 # get data
-
 targets <- c('PEBP1', 'PIK3C3', 'PIK3CB', 'TBC1D25', 'TBC1D5', 'TOLLIP', 'WDR45', 'WIPI1', 'TGFBR1')
 
 if(!file.exists('cRegulome.db')) {

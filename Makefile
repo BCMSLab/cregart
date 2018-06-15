@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#R_OPT=--vanilla
+R_OPT=--vanilla
 
 SCRIPTS=scripts
 
@@ -11,7 +11,9 @@ TAB_DIR=manuscript/tables
 DATA=data
 LOG=log
 
-all: tf.rds
+all: dir_tree \
+	$(DATA)/tf.rds \
+	$(DATA)/mir.rds
 	
 dir_tree:
 	test ! -d $(LOG) && mkdir $(LOG) || echo '$(LOG)/ is already there.'
@@ -20,5 +22,5 @@ dir_tree:
 	test ! -d $(TAB_DIR) && mkdir $(TAB_DIR) || echo '$(TAB_DIR)/ is already there.'
 	test ! -d $(FIG_DIR) && mkdir $(FIG_DIR) || echo '$(FIG_DIR)/ is already there.'
 	
-tf.rds: $(SCRIPTS)/get_data.R 
+$(DATA)/tf.rds $(DATA)/mir.rds: $(SCRIPTS)/get_data.R cRegulome.db
 	R CMD BATCH $(R_OPT) $(SCRIPTS)/get_data.R $(LOG)/get_data.R.Rout
