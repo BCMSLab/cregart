@@ -28,3 +28,21 @@ dbDisconnect(conn)
 
 write_rds(tf, path = 'data/tf.rds')
 write_rds(mir, path = 'data/mir.rds')
+
+# all targets
+conn <- dbConnect(SQLite(), 'cRegulome.db')
+
+tf <- get_tf(conn,
+             tf = c('ERCC6', 'VEZF1'),
+             study = 'PRAD',
+             targets_only = TRUE)
+
+mir <- get_mir(conn,
+               mir = c('hsa-mir-23c', 'hsa-mir-378c', 'hsa-mir-761'),
+               study = 'PRAD',
+               targets_only = TRUE)
+
+dbDisconnect(conn)
+
+write_rds(tf, path = 'data/alltf.rds')
+write_rds(mir, path = 'data/allmir.rds')
