@@ -57,11 +57,13 @@ $(FIG_DIR)/network.png: $(SCRIPTS)/network.R $(DATA)/tf.rds $(DATA)/mir.rds
 	
 $(ADD_FLS)/manuscript_code.R: $(SCRIPTS)/*
 	cat $(SCRIPTS)/get_data.R \
-		$(SCRIPTS)/output.R \
-		$(SCRIPTS)/dotplot.R \
-		$(SCRIPTS)/upsetplot.R \
-		$(SCRIPTS)/joyplot.R \
-		> $(ADD_FLS)/manuscript_code.R
+			$(SCRIPTS)/output.R \
+			$(SCRIPTS)/functions_description.R \
+			$(SCRIPTS)/dotplot.R \
+			$(SCRIPTS)/upsetplot.R \
+			$(SCRIPTS)/joyplot.R \
+			$(SCRIPTS)/network.R \
+			> $(ADD_FLS)/manuscript_code.R
 
 # clean up
 clean:
