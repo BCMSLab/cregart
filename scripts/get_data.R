@@ -7,12 +7,12 @@ library(cRegulome)
 
 # Downlaod database file
 if(!file.exists('cRegulome.db')) {
-  get_db(test = FALSE)
-  unzip('cRegulome.db.gz')
+  get_db(test = FALSE,
+         destfile = './cRegulome.db')
 }
 
 # Query the database 
-conn <- dbConnect(SQLite(), 'cRegulome.db')
+conn <- dbConnect(SQLite(), './cRegulome.db')
 
 all_tf <- get_tf(conn,
              tf = c('ERCC6', 'VEZF1'),
@@ -31,7 +31,7 @@ write_rds(all_tf, path = 'data/alltf.rds')
 write_rds(all_mir, path = 'data/allmir.rds')
 
 # Query mir with targets = False
-conn <- dbConnect(SQLite(), 'cRegulome.db')
+conn <- dbConnect(SQLite(), './cRegulome.db')
 
 all_mir <- get_mir(conn,
                    mir = c('hsa-mir-23c', 'hsa-mir-378c', 'hsa-mir-761'),
