@@ -25,4 +25,5 @@ bind_rows(list(TF = tf, miRNA = mir), .id = 'type') %>%
         caption.placement = 'top',
         table.placement = 'H',
         sanitize.text.function = identity,
+        comment = FALSE,
         file = paste('manuscript/tables', 'output.tex', sep = '/'))

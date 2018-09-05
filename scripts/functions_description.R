@@ -27,4 +27,5 @@ list('get\\_db' = "Download the database file.",
         caption.placement = 'top',
         table.placement = 'H',
         sanitize.text.function = identity,
+        comment = FALSE,
         file = paste('manuscript/tables', 'functions_description.tex', sep = '/'))
