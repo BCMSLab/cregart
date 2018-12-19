@@ -7,8 +7,8 @@ A manuscript about the [cRegulome](http://github.com/ropensci/cRegulome) R packa
 The analysis was run on a [docker](https://hub.docker.com/r/bcmslab/cregart/) image based on the the latest **rocker/verse**. Other R packages were added to the image and were made available as an image that can be obtained and launched on any local machine running [docker](https://hub.docker.com/r/bcmslab/cregart/).
 
 ```bash
-$ docker pull bcmslab/cregart:20180615
-$ docker run -it bcmslab/cregart:20180615 bash
+$ docker pull bcmslab/cregart:20181219
+$ docker run -it bcmslab/cregart:20181219 bash
 ```
 
 ## Obtaining the source code
@@ -36,6 +36,3 @@ $ make
 The version of **R** that was used to perform this analysis is the 3.5.0 (2018-04-23) on `x86\_64-pc-linux-gnu`. The `DESCRIPTION` file in the main repository contains further details about the dependencies and the license of this work.
 
 ## More
-
-* Preprint, [here]()
-* Published paper, [here]()
