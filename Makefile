@@ -13,10 +13,7 @@ DATA=data
 LOG=log
 
 all: dir_tree \
-	$(DATA)/tf.rds \
-	$(DATA)/mir.rds \
-	$(DATA)/alltf.rds \
-	$(DATA)/allmir.rds \
+	get_data \
 	$(TAB_DIR)/output.tex \
 	$(TAB_DIR)/functions_description.tex \
 	$(FIG_DIR)/dotplot.png \
@@ -34,7 +31,7 @@ dir_tree:
 	test ! -d $(FIG_DIR) && mkdir $(FIG_DIR) || echo '$(FIG_DIR)/ is already there.'
 	test ! -d $(ADD_FLS) && mkdir $(ADD_FLS) || echo '$(ADD_FLS)/ is already there.'
 	
-$(DATA)/tf.rds $(DATA)/mir.rds $(DATA)/alltf.rds $(DATA)/allmir.rds: $(SCRIPTS)/get_data.R cRegulome.db
+get_data: $(SCRIPTS)/get_data.R
 	R CMD BATCH $(R_OPT) $(SCRIPTS)/get_data.R $(LOG)/get_data.R.Rout
 
 $(TAB_DIR)/functions_description.tex: $(SCRIPTS)/functions_description.R

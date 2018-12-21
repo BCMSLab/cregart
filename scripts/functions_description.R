@@ -13,7 +13,7 @@ list('get\\_db' = "Download the database file.",
      'cor\\_plot' = "Makes a dot plot of element correlations with colors corresponding to direction and size to the value of the correlation.",
      'cor\\_upset' = "Makes an upset plot of the intersections of sets of regulome elements’ feature/gene hits.",
      'cor\\_venn\\_diagram' = "Makes a venn diagram of the numbers and the intersection of the regulome elements’ feature/gene hits.",
-     'cor\\_igraph' = "Make a directed graph of the regulators TF/microRNA and thier targets.") %>%
+     'cor\\_igraph' = "Make a directed graph of the regulators TF/microRNA and their targets.") %>%
   melt() %>%
   setNames(c('Description', 'Method')) %>%
   select(Method, Description) %>%
